@@ -1,0 +1,17 @@
+-- Pedro Gasparelo Leme -- 2024
+-- 4 bit mux
+
+entity DE10_Lite_mux is  -- Lesson learned, do not use '-' in the entity's name
+    Port (
+        a    : in  bit_vector(3 downto 0); -- first entry of 4 bits
+        b    : in  bit_vector(7 downto 4); -- Second entry de 4 bits
+        sel  : in  bit;                    -- selection sign
+        y    : out bit_vector(3 downto 0)  -- 4 bit output
+    );
+end DE10_Lite_mux;
+
+architecture Behavioral of DE10_Lite_mux is
+begin
+    y <= a when sel = '0' else
+         b;
+end Behavioral;
